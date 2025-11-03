@@ -1,0 +1,89 @@
+{% extends 'news/base.html' %}
+
+{% block title %}Conecta ZL - Destaques{% endblock %}
+
+{% block content %}
+<main class="flex-1 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full">
+    <div class="mb-12">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2">
+            Destaques da Semana
+        </h2>
+        <p class="text-gray-600 text-lg">
+            As notícias mais importantes da Zona Leste
+        </p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-lg border-0 mb-12 overflow-hidden">
+        <div class="relative">
+            <div class="absolute top-4 left-4 z-10">
+                <span class="bg-red-600 text-white px-4 py-2 rounded-lg font-bold text-sm">
+                    {{ featured_news.category }}
+                </span>
+            </div>
+            <img class="w-full h-64 md:h-96 lg:h-[500px] object-cover" alt="{{ featured_news.title }}" src="{{ featured_news.image }}">
+        </div>
+        <div class="p-6 md:p-8 lg:p-12">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 leading-tight">
+                {{ featured_news.title }}
+            </h1>
+            <p class="text-gray-500 text-sm md:text-base mb-6">
+                {{ featured_news.date }}
+            </p>
+            <p class="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
+                {{ featured_news.excerpt }}
+            </p>
+            <button class="bg-primary hover:bg-primary-light text-white px-8 py-6 text-lg rounded-lg">
+                Leia a Notícia Completa →
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6">
+            Outros Destaques
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            {% for news in other_news %}
+            <div class="bg-white rounded-xl shadow-md border-0 overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative">
+                    <div class="absolute top-3 left-3 z-10">
+                        <span class="bg-primary text-white px-3 py-1 rounded-lg font-semibold text-xs">
+                            {{ news.category }}
+                        </span>
+                    </div>
+                    <img class="w-full h-48 md:h-64 object-cover" alt="{{ news.title }}" src="{{ news.image }}">
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-500 text-sm mb-2">{{ news.date }}</p>
+                    <h3 class="text-xl font-bold text-primary mb-3 leading-tight">
+                        {{ news.title }}
+                    </h3>
+                    <p class="text-gray-700 text-sm mb-4 leading-relaxed">
+                        {{ news.excerpt }}
+                    </p>
+                    <button class="bg-primary hover:bg-primary-light text-white px-6 py-3 rounded-lg w-full">
+                        Leia Mais →
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="bg-beige rounded-xl p-8 md:p-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4">
+            Receba as Notícias em Primeira Mão
+        </h2>
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+            Cadastre-se em nossa newsletter e fique por dentro de tudo que acontece na Zona Leste
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
+            <input type="email" placeholder="Seu melhor e-mail" class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-primary">
+            <button class="bg-primary hover:bg-primary-light text-white px-8 py-3 rounded-lg font-semibold">
+                Cadastrar
+            </button>
+        </div>
+    </div>
+</main>
+{% endblock %}

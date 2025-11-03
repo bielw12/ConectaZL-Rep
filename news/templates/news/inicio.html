@@ -1,0 +1,180 @@
+{% extends 'news/base.html' %}
+
+{% block title %}Conecta ZL - Início{% endblock %}
+
+{% block content %}
+<section class="relative w-full h-[400px] md:h-[500px] overflow-hidden">
+    <img class="absolute inset-0 w-full h-full object-cover" alt="Hero Banner" src="/static/figmaAssets/kit-1.png">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-[#7d3ba3]/80"></div>
+    
+    <div class="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+        <div class="grid md:grid-cols-2 gap-8 items-center w-full">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <span class="text-primary font-bold text-3xl md:text-5xl">C</span>
+                </div>
+                <div class="flex flex-col leading-tight text-white">
+                    <h2 class="text-2xl md:text-4xl font-bold">Conecta ZL</h2>
+                    <p class="text-sm md:text-base">Notícias que nos unem.</p>
+                </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-sm border-2 border-white rounded-3xl p-6 md:p-8">
+                <h3 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
+                    Conectando a Comunidade com Fatos e Notícias do Bairro!
+                </h3>
+                <button class="bg-white text-primary hover:bg-gray-100 font-semibold px-6 py-6 text-lg rounded-xl">
+                    Leia Agora →
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full">
+    <div class="bg-white rounded-xl shadow-md border-0 mb-8 p-4 md:p-6">
+        <div class="flex items-start gap-3 md:gap-4 mb-4">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gray-300 flex items-center justify-center">
+                <span class="text-white font-bold text-xl">U</span>
+            </div>
+
+            <div class="flex-1 bg-gray-100 rounded-lg px-4 py-3">
+                <input placeholder="O que está acontecendo no seu bairro?" class="border-0 bg-transparent text-gray-600 text-base md:text-lg w-full focus:outline-none">
+            </div>
+        </div>
+
+        <div class="border-t border-gray-200 pt-4">
+            <div class="flex items-center gap-2 md:gap-3">
+                <img class="w-8 h-8 md:w-10 md:h-10" alt="Picture" src="/static/figmaAssets/picture.png">
+                <span class="text-gray-700 text-sm md:text-base">Foto/Vídeo</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-8">
+        <div class="flex flex-col md:flex-row md:items-center gap-4 mb-6">
+            <button class="bg-primary-dark hover:bg-primary-dark/90 rounded-lg h-12 px-6 w-fit flex items-center gap-2">
+                <span class="font-bold text-white text-base md:text-lg">Bairro</span>
+                <img class="w-3 h-5" alt="Dropdown" src="/static/figmaAssets/group-26.png">
+            </button>
+            <h2 class="text-2xl md:text-3xl font-light text-black">Principais Notícias</h2>
+        </div>
+        <div class="w-full md:w-96 h-0.5 bg-black mb-6"></div>
+    </div>
+
+    {% for post in posts %}
+    <div class="bg-white rounded-xl shadow-md border-0 mb-8 p-4 md:p-6">
+        <div class="flex items-start gap-3 md:gap-4 mb-4">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden bg-gray-300">
+                <img src="{{ post.avatar }}" alt="{{ post.author }}" class="w-full h-full object-cover">
+            </div>
+
+            <div>
+                <h3 class="font-semibold text-black text-base md:text-lg mb-0.5">{{ post.author }}</h3>
+                <p class="text-gray-500 text-sm">{{ post.date }}</p>
+            </div>
+        </div>
+
+        <p class="text-gray-900 text-sm md:text-base mb-4 leading-relaxed">{{ post.content }}</p>
+
+        <div class="grid grid-cols-2 gap-3 md:gap-4 mb-4">
+            {% for image in post.images %}
+            <img class="w-full h-40 md:h-52 rounded-lg object-cover" alt="Post image" src="{{ image }}">
+            {% endfor %}
+        </div>
+
+        <div class="border-t border-gray-200 pt-4">
+            <div class="flex items-center justify-end gap-3 md:gap-4">
+                <div class="flex items-center gap-1">
+                    <img class="w-6 h-6 md:w-8 md:h-8 object-cover" alt="Comments" src="/static/figmaAssets/image-17.png">
+                </div>
+                <button>
+                    <img class="w-6 h-6 md:w-8 md:h-8" alt="Like" src="/static/figmaAssets/heart-2.png">
+                </button>
+                <button>
+                    <img class="w-6 h-6 md:w-8 md:h-8" alt="Share" src="/static/figmaAssets/share-2.png">
+                </button>
+                <button>
+                    <img class="w-7 h-6 md:w-9 md:h-8" alt="Bookmark" src="/static/figmaAssets/bookmark-2.png">
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <section class="w-full bg-primary rounded-xl p-6 md:p-12 mb-8 grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+        <div>
+            <h2 class="font-extrabold text-white text-2xl md:text-4xl lg:text-5xl mb-4 md:mb-6 leading-tight">
+                Acompanhe ao vivo os principais acontecimentos da Zona Leste
+            </h2>
+            <p class="font-light text-white text-sm md:text-base lg:text-lg mb-4 md:mb-6 leading-relaxed">
+                No Conecta ZL, você encontra as notícias e fatos mais relevantes
+                do seu bairro e da sua comunidade. Somos a voz da nossa gente, um
+                portal feito para unir, informar e dar espaço às histórias que
+                moldam o dia a dia. Chega de buscar longe: aqui, a notícia é
+                nossa.
+            </p>
+            <button class="bg-beige hover:bg-beige/90 rounded-lg h-12 px-6">
+                <span class="font-semibold text-black text-base md:text-lg">Saiba Mais</span>
+            </button>
+        </div>
+
+        <div class="flex justify-center">
+            <img class="w-full max-w-md h-auto rounded-2xl object-cover" alt="Live updates" src="/static/figmaAssets/chatgpt-image-7-de-out--de-2025--10-24-10-1.png">
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
+            <h2 class="font-bold text-primary text-2xl md:text-3xl lg:text-4xl">
+                Na hora, no ponto e para você!
+            </h2>
+            <img class="w-24 h-24 md:w-32 md:h-32" alt="Icon" src="/static/figmaAssets/icon--3--3.png">
+        </div>
+
+        <div class="w-full h-48 md:h-72 bg-gray-300 rounded-xl"></div>
+    </section>
+
+    <section>
+        <h2 class="font-bold text-primary text-2xl md:text-3xl lg:text-4xl mb-8">Alertas!</h2>
+
+        <div class="bg-white rounded-xl shadow-md border-0 p-4 md:p-6">
+            <div class="flex items-start gap-3 md:gap-4 mb-4">
+                <div class="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden bg-gray-300">
+                    <img src="{{ alert.avatar }}" alt="{{ alert.author }}" class="w-full h-full object-cover">
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-black text-base md:text-lg mb-0.5">{{ alert.author }}</h3>
+                    <p class="text-gray-500 text-sm">{{ alert.date }}</p>
+                </div>
+            </div>
+
+            <p class="text-gray-900 text-sm md:text-base mb-4 leading-relaxed whitespace-pre-line">{{ alert.content }}</p>
+
+            <div class="grid grid-cols-2 gap-3 md:gap-4 mb-4">
+                {% for image in alert.images %}
+                <img class="w-full h-44 md:h-60 rounded-lg object-cover" alt="Alert image" src="{{ image }}">
+                {% endfor %}
+            </div>
+
+            <div class="border-t border-gray-200 pt-4">
+                <div class="flex items-center justify-end gap-3 md:gap-4">
+                    <div class="flex items-center gap-1">
+                        <img class="w-6 h-6 md:w-8 md:h-8 object-cover" alt="Comments" src="/static/figmaAssets/image-17.png">
+                    </div>
+                    <button>
+                        <img class="w-6 h-6 md:w-8 md:h-8" alt="Like" src="/static/figmaAssets/heart-2.png">
+                    </button>
+                    <button>
+                        <img class="w-6 h-6 md:w-8 md:h-8" alt="Share" src="/static/figmaAssets/share-2.png">
+                    </button>
+                    <button>
+                        <img class="w-7 h-6 md:w-9 md:h-8" alt="Bookmark" src="/static/figmaAssets/bookmark-2.png">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

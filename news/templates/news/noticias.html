@@ -1,0 +1,77 @@
+{% extends 'news/base.html' %}
+
+{% block title %}Conecta ZL - Notícias{% endblock %}
+
+{% block content %}
+<main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full">
+    <div class="mb-8">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2">
+            Todas as Notícias
+        </h2>
+        <p class="text-gray-600 text-lg">
+            Fique por dentro de tudo que acontece na Zona Leste
+        </p>
+    </div>
+
+    <div class="space-y-6">
+        {% for article in news_articles %}
+        <div class="bg-white rounded-xl shadow-md border-0 hover:shadow-lg transition-shadow p-4 md:p-6">
+            <div class="flex items-start gap-3 md:gap-4 mb-4">
+                <div class="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden bg-gray-300">
+                    <img src="{{ article.avatar }}" alt="{{ article.author }}" class="w-full h-full object-cover">
+                </div>
+
+                <div class="flex-1">
+                    <div class="flex items-center justify-between mb-2">
+                        <div>
+                            <h3 class="font-semibold text-black text-base md:text-lg">{{ article.author }}</h3>
+                            <p class="text-gray-500 text-sm">{{ article.date }}</p>
+                        </div>
+                        <span class="bg-primary text-white px-3 py-1 rounded-lg font-semibold text-xs">
+                            {{ article.category }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-xl md:text-2xl font-bold text-primary mb-3 leading-tight">
+                {{ article.title }}
+            </h2>
+
+            <p class="text-gray-700 text-sm md:text-base mb-4 leading-relaxed">
+                {{ article.content }}
+            </p>
+
+            <div class="grid grid-cols-2 gap-3 md:gap-4 mb-4">
+                {% for image in article.images %}
+                <img class="w-full h-40 md:h-52 rounded-lg object-cover" alt="Article image" src="{{ image }}">
+                {% endfor %}
+            </div>
+
+            <div class="border-t border-gray-200 pt-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <button class="flex items-center gap-1 text-gray-600 hover:text-primary transition-colors">
+                            <img class="w-6 h-6" alt="Like" src="/static/figmaAssets/heart-2.png">
+                            <span class="text-sm">Curtir</span>
+                        </button>
+                        <button class="flex items-center gap-1 text-gray-600 hover:text-primary transition-colors">
+                            <img class="w-6 h-6" alt="Comment" src="/static/figmaAssets/image-17.png">
+                            <span class="text-sm">Comentar</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                            <img class="w-6 h-6" alt="Share" src="/static/figmaAssets/share-2.png">
+                        </button>
+                        <button class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                            <img class="w-7 h-6" alt="Bookmark" src="/static/figmaAssets/bookmark-2.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

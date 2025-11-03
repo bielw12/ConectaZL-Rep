@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Bell, User } from "lucide-react";
+import { Link } from "wouter";
 
 const posts = [
   {
@@ -52,26 +53,34 @@ export const Inicio = (): JSX.Element => {
       <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-[#4c2165] rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">C</span>
-              </div>
-              <div className="flex flex-col leading-tight">
-                <h1 className="text-lg font-bold text-[#4c2165]">Conecta ZL</h1>
-                <p className="text-xs text-gray-600">Notícias que nos unem.</p>
-              </div>
-            </div>
+            <Link href="/">
+              <a className="flex items-center gap-2 cursor-pointer">
+                <div className="w-10 h-10 bg-[#4c2165] rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-xl">C</span>
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <h1 className="text-lg font-bold text-[#4c2165]">Conecta ZL</h1>
+                  <p className="text-xs text-gray-600">Notícias que nos unem.</p>
+                </div>
+              </a>
+            </Link>
 
             <nav className="hidden md:flex items-center gap-8">
-              <button className="font-bold text-[#4c2165] hover:text-[#6d2d8f] transition-colors">
-                INÍCIO
-              </button>
-              <button className="font-bold text-[#4c2165] hover:text-[#6d2d8f] transition-colors">
-                DESTAQUES
-              </button>
-              <button className="font-bold text-[#4c2165] hover:text-[#6d2d8f] transition-colors">
-                NOTÍCIAS
-              </button>
+              <Link href="/">
+                <a className="font-bold text-[#4c2165] hover:text-[#6d2d8f] transition-colors">
+                  INÍCIO
+                </a>
+              </Link>
+              <Link href="/destaques">
+                <a className="font-bold text-[#4c2165] hover:text-[#6d2d8f] transition-colors">
+                  DESTAQUES
+                </a>
+              </Link>
+              <Link href="/noticias">
+                <a className="font-bold text-[#4c2165] hover:text-[#6d2d8f] transition-colors">
+                  NOTÍCIAS
+                </a>
+              </Link>
             </nav>
 
             <div className="flex items-center gap-4">

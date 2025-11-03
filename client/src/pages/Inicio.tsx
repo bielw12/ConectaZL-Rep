@@ -3,8 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Bell, User } from "lucide-react";
-import { Link } from "wouter";
+import { Header } from "@/components/Header";
 
 const posts = [
   {
@@ -50,44 +49,7 @@ Vestuário no momento do desaparecimento: camiseta azul clara, calça jeans e t�
 export const Inicio = (): JSX.Element => {
   return (
     <div className="bg-[#efede3] w-full min-h-screen flex flex-col">
-      <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            <Link href="/" className="flex items-center gap-2 cursor-pointer">
-              <div className="w-10 h-10 bg-[#4c2165] rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">C</span>
-              </div>
-              <div className="flex flex-col leading-tight">
-                <h1 className="text-lg font-bold text-[#4c2165]">Conecta ZL</h1>
-                <p className="text-xs text-gray-600">Notícias que nos unem.</p>
-              </div>
-            </Link>
-
-            <nav className="hidden md:flex items-center gap-8">
-              <Link href="/" className="font-bold text-[#4c2165] hover:text-[#6d2d8f] transition-colors">
-                INÍCIO
-              </Link>
-              <Link href="/destaques" className="font-bold text-[#4c2165] hover:text-[#6d2d8f] transition-colors">
-                DESTAQUES
-              </Link>
-              <Link href="/noticias" className="font-bold text-[#4c2165] hover:text-[#6d2d8f] transition-colors">
-                NOTÍCIAS
-              </Link>
-            </nav>
-
-            <div className="flex items-center gap-4">
-              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-                <Bell className="w-6 h-6 text-[#4c2165]" />
-              </button>
-              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-                <div className="w-8 h-8 bg-[#4c2165] rounded-full flex items-center justify-center">
-                  <User className="w-5 h-5 text-white" />
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <section className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
         <img

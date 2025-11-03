@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 
 import { Inicio } from "@/pages/Inicio";
 import { Destaques } from "@/pages/Destaques";
+import { Noticias } from "@/pages/Noticias";
 
 function Router() {
   return (
@@ -14,6 +15,7 @@ function Router() {
       {/* Add pages below */}
       <Route path="/" component={Inicio} />
       <Route path="/destaques" component={Destaques} />
+      <Route path="/noticias" component={Noticias} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>

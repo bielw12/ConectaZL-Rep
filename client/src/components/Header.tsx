@@ -43,10 +43,16 @@ export const Header = () => {
           </nav>
 
           <div className="flex items-center gap-2 md:gap-4">
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors hidden sm:block">
+            <button 
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors hidden sm:block"
+              aria-label="Ver notificações"
+            >
               <Bell className="w-6 h-6 text-[#4c2165]" />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors hidden sm:block">
+            <button 
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors hidden sm:block"
+              aria-label="Acessar perfil"
+            >
               <div className="w-8 h-8 bg-[#4c2165] rounded-full flex items-center justify-center">
                 <User className="w-5 h-5 text-white" />
               </div>
@@ -55,6 +61,8 @@ export const Header = () => {
             <button
               className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6 text-[#4c2165]" />
@@ -83,11 +91,17 @@ export const Header = () => {
                 </Link>
               ))}
               <div className="flex items-center gap-4 py-2 px-4 border-t border-gray-200 mt-2 pt-4">
-                <button className="flex items-center gap-2 text-[#4c2165] hover:text-[#6d2d8f]">
+                <button 
+                  className="flex items-center gap-2 text-[#4c2165] hover:text-[#6d2d8f]"
+                  aria-label="Ver notificações"
+                >
                   <Bell className="w-5 h-5" />
                   <span className="text-sm font-semibold">Notificações</span>
                 </button>
-                <button className="flex items-center gap-2 text-[#4c2165] hover:text-[#6d2d8f]">
+                <button 
+                  className="flex items-center gap-2 text-[#4c2165] hover:text-[#6d2d8f]"
+                  aria-label="Acessar perfil"
+                >
                   <User className="w-5 h-5" />
                   <span className="text-sm font-semibold">Perfil</span>
                 </button>

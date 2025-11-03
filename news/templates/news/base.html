@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -114,9 +115,9 @@
                 </p>
 
                 <div class="flex items-center gap-4">
-                    <img class="w-8 h-8 md:w-10 md:h-10" alt="X" src="/static/figmaAssets/x.png">
-                    <img class="w-8 h-8 md:w-10 md:h-10" alt="YouTube" src="/static/figmaAssets/youtube.png">
-                    <img class="w-8 h-8 md:w-10 md:h-10" alt="Instagram" src="/static/figmaAssets/instagram.png">
+                    <img class="w-8 h-8 md:w-10 md:h-10" alt="X" src="{% static 'figmaAssets/x.png' %}">
+                    <img class="w-8 h-8 md:w-10 md:h-10" alt="YouTube" src="{% static 'figmaAssets/youtube.png' %}">
+                    <img class="w-8 h-8 md:w-10 md:h-10" alt="Instagram" src="{% static 'figmaAssets/instagram.png' %}">
                 </div>
             </div>
         </div>
